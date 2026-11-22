@@ -50,7 +50,7 @@ main{margin-left:var(--side)}
 
 /* ---------- Hero ---------- */
 .hero{position:relative;min-height:min(86vh,760px);display:flex;align-items:flex-end;background:var(--navy);color:#fff;overflow:hidden;isolation:isolate}
-.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:12% 50%;z-index:-2}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:30% 60%;z-index:-2}
 .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(7,26,61,.92) 0%,rgba(7,26,61,.7) 32%,rgba(7,26,61,0) 60%),linear-gradient(0deg,rgba(7,26,61,.5),rgba(7,26,61,0) 40%)}
 .hero .in{padding:72px 64px 64px;max-width:560px}
 .hero .by{display:inline-block;font-size:13px;letter-spacing:.04em;padding:5px 12px;border:1px solid rgba(255,255,255,.45);border-radius:999px;margin-bottom:28px}
@@ -159,8 +159,8 @@ h4{font-size:15px;font-weight:700;margin:20px 0 6px}
 .zoom{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in;border-radius:var(--radius);overflow:hidden}
 .zoom img{width:100%;transition:transform .5s var(--ease)}
 @media (hover:hover) and (pointer:fine){.zoom:hover img{transform:scale(1.025)}}
-.masonry{columns:3;column-gap:16px}
-.masonry .zoom{margin-bottom:16px;break-inside:avoid}
+.masonry{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.masonry img{aspect-ratio:4/3;object-fit:cover}
 .gal{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 20px}
 .gal .wide{grid-column:1/-1}
 figcaption{display:flex;gap:12px;align-items:baseline;padding-top:12px;font-size:15.5px;font-weight:600}
@@ -169,6 +169,8 @@ figcaption .n{font-size:12.5px;color:var(--blue);font-variant-numeric:tabular-nu
 .approach{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:40px;align-items:start;padding:40px 0;border-top:1px solid var(--line)}
 .approach h3{font-size:26px;font-weight:600;letter-spacing:-.01em;margin-bottom:12px}
 .approach .k{font-size:14px;font-weight:700;color:var(--green);margin-bottom:6px}
+.more-btn{margin:20px auto 0;display:flex;min-height:44px;padding:8px 22px;font-size:15px}
+.zoom[hidden]{display:none}
 .icons-names{display:grid;grid-template-columns:repeat(3,1fr);text-align:center;font-weight:600;color:var(--muted);font-size:14px;padding:12px 0 0}
 
 /* ---------- Verbal language ---------- */
@@ -245,14 +247,14 @@ dialog[open]{animation:pop .22s var(--ease)}
   .menu span::before{position:absolute;top:-6px}.menu span::after{position:absolute;top:6px}
   main{margin-left:0}
   .sec{padding:64px 20px 8px;scroll-margin-top:60px}
-  .hero{min-height:74vh}.hero .in{padding:40px 20px}
-  .hero img{object-position:70% 50%}
-  .hero::after{background:linear-gradient(0deg,rgba(7,26,61,.92) 8%,rgba(7,26,61,.35) 60%,rgba(7,26,61,.15))}
+  .hero{min-height:0;display:block}.hero .in{padding:32px 20px 40px}
+  .hero img{position:static;height:auto;aspect-ratio:5/4;object-position:76% 50%}
+  .hero::after{display:none}
   .split,.approach,.facts,.pair,.sizes,.grads{grid-template-columns:1fr;gap:24px}
   .map{padding:28px 20px}.map-grid{grid-template-columns:1fr}
   .values ul{grid-template-columns:1fr 1fr}
   .swatches{grid-template-columns:1fr}.sw{min-height:0;padding:20px;flex-direction:row;align-items:flex-start}.sw dl{width:178px;flex:none}
-  .masonry{columns:2;column-gap:10px}.masonry .zoom{margin-bottom:10px}
+  .masonry{grid-template-columns:1fr 1fr;gap:10px}.masonry .zoom:first-child{grid-column:1/-1}
   .gal{grid-template-columns:1fr}.posts{grid-template-columns:1fr 1fr;gap:10px}
   .weights li{grid-template-columns:1fr;gap:4px}
   .glyphs div{grid-template-columns:1fr;gap:4px}
@@ -292,7 +294,7 @@ dialog[open]{animation:pop .22s var(--ease)}
 
 <main id="main">
 <div class="hero" id="top">
-  <img src="assets/img/hero.jpg" width="1800" height="1015" alt="The Galcon-Sentek emblem as a glass sculpture standing in a green field under a clear sky" fetchpriority="high">
+  <img src="assets/img/hero.jpg" width="2000" height="1116" alt="Three people walking and talking between crop rows in a wide green field under a blue sky" fetchpriority="high">
   <div class="in">
     <span class="by">by OZ GLOBAL B2B</span>
     <h1>Brand Identity Guidelines</h1>
@@ -547,23 +549,56 @@ dialog[open]{animation:pop .22s var(--ease)}
 
   <div class="sub">
     <div class="sub-head"><span class="n">5.2</span><h3>Agriculture</h3></div>
-    <div class="masonry">
-      <button class="zoom"><img src="assets/img/agri-1.jpg" width="1290" height="1702" alt="Two agronomists walking through a vineyard with a tablet" loading="lazy"></button>
-      <button class="zoom"><img src="assets/img/agri-2.jpg" width="740" height="790" alt="A grower inspecting a young plant against a blue sky" loading="lazy"></button>
-      <button class="zoom"><img src="assets/img/agri-3.jpg" width="738" height="860" alt="A grower reading a soil probe with a phone in an open field" loading="lazy"></button>
-      <button class="zoom"><img src="assets/img/agri-4.jpg" width="1290" height="1702" alt="A grower operating a Galileo controller in an orchard" loading="lazy"></button>
+    <div class="masonry" id="gal-agri">
+      <button class="zoom"><img src="assets/img/agri-01.jpg" width="1600" height="905" alt="An agronomist with a tablet talking with a grower between staked tomato rows" loading="lazy"></button>
+      <button class="zoom"><img src="assets/img/agri-02.jpg" width="1600" height="893" alt="A grower with a tablet standing in a citrus orchard" loading="lazy"></button>
+      <button class="zoom"><img src="assets/img/agri-04.jpg" width="1289" height="1600" alt="A grower kneeling to check a cauliflower head, tablet in hand" loading="lazy"></button>
+      <button class="zoom"><img src="assets/img/agri-09.jpg" width="1600" height="893" alt="A grower and his dog walking a pepper field at sunset" loading="lazy"></button>
+      <button class="zoom"><img src="assets/img/agri-12.jpg" width="1600" height="893" alt="A white pickup with a dog in the back driving along a corn field" loading="lazy"></button>
+      <button class="zoom"><img src="assets/img/agri-13.jpg" width="1600" height="893" alt="Two growers walking and talking in an apple orchard" loading="lazy"></button>
+      <button class="zoom"><img src="assets/img/agri-14.jpg" width="1600" height="905" alt="A drone hovering over crop rows with its operator standing below" loading="lazy"></button>
+      <button class="zoom"><img src="assets/img/agri-15.jpg" width="1600" height="893" alt="An older grower on a bench with a mug, looking over his field in morning mist" loading="lazy"></button>
+      <button class="zoom"><img src="assets/img/agri-17.jpg" width="1600" height="905" alt="A grower resting on his tractor with a mug, looking over young crop rows" loading="lazy"></button>
+      <button class="zoom more" hidden><img src="assets/img/agri-03.jpg" width="1600" height="905" alt="An agronomist and a grower discussing a tomato crop beside the plants" loading="lazy"></button>
+      <button class="zoom more" hidden><img src="assets/img/agri-05.jpg" width="1289" height="1600" alt="A grower inspecting cauliflower leaves under a cloudy sky" loading="lazy"></button>
+      <button class="zoom more" hidden><img src="assets/img/agri-06.jpg" width="1289" height="1600" alt="A grower with soil on his hands checking a cauliflower plant" loading="lazy"></button>
+      <button class="zoom more" hidden><img src="assets/img/agri-07.jpg" width="1289" height="1600" alt="A grower lifting a cauliflower leaf while reading a tablet" loading="lazy"></button>
+      <button class="zoom more" hidden><img src="assets/img/agri-08.jpg" width="893" height="1600" alt="A child on a rope swing at the edge of a citrus orchard" loading="lazy"></button>
+      <button class="zoom more" hidden><img src="assets/img/agri-10.jpg" width="1600" height="893" alt="A grower and his dog walking between tall corn rows at dusk" loading="lazy"></button>
+      <button class="zoom more" hidden><img src="assets/img/agri-11.jpg" width="1600" height="893" alt="A grower and his dog walking through young corn at sunset" loading="lazy"></button>
+      <button class="zoom more" hidden><img src="assets/img/agri-16.jpg" width="1600" height="893" alt="A grower on a chair under a tree overlooking rolling fields" loading="lazy"></button>
+      <button class="zoom more" hidden><img src="assets/img/agri-18.jpg" width="1600" height="893" alt="A drone hovering in front of its operator in a field" loading="lazy"></button>
+      <button class="zoom more" hidden><img src="assets/img/agri-19.jpg" width="1600" height="893" alt="A grower pointing out plants to an agronomist in a tomato field" loading="lazy"></button>
+      <button class="zoom more" hidden><img src="assets/img/agri-20.jpg" width="1600" height="905" alt="A drone flying low over wide green crop rows" loading="lazy"></button>
     </div>
+    <button class="btn more-btn" aria-controls="gal-agri" aria-expanded="false" data-n="20">Show all 20 photos</button>
   </div>
 
   <div class="sub">
     <div class="sub-head"><span class="n">5.3</span><h3>Gardening</h3></div>
-    <div class="masonry">
-      <button class="zoom"><img src="assets/img/garden-1.jpg" width="1578" height="1702" alt="Hands fitting a drip line in a mulched garden bed" loading="lazy"></button>
-      <button class="zoom"><img src="assets/img/garden-2.jpg" width="740" height="854" alt="A gardener programming an irrigation controller in a park" loading="lazy"></button>
-      <button class="zoom"><img src="assets/img/garden-3.jpg" width="740" height="800" alt="A gardener trimming a hedge in a city park" loading="lazy"></button>
-      <button class="zoom"><img src="assets/img/garden-4.jpg" width="1026" height="850" alt="A gardener walking a path between flowering hedges" loading="lazy"></button>
-      <button class="zoom"><img src="assets/img/garden-5.jpg" width="1026" height="792" alt="A wide view of a landscaped public garden with gardeners at work" loading="lazy"></button>
+    <div class="masonry" id="gal-garden">
+      <button class="zoom"><img src="assets/img/garden-01.jpg" width="1600" height="893" alt="Three people walking a golf course fairway at sunrise" loading="lazy"></button>
+      <button class="zoom"><img src="assets/img/garden-02.jpg" width="1600" height="893" alt="A landscaper with a tablet and a homeowner reviewing a rose border at a stone villa" loading="lazy"></button>
+      <button class="zoom"><img src="assets/img/garden-03.jpg" width="1600" height="893" alt="A gardener kneeling at a park flower bed, phone in hand" loading="lazy"></button>
+      <button class="zoom"><img src="assets/img/garden-06.jpg" width="1600" height="905" alt="A gardener inspecting a lavender border up close" loading="lazy"></button>
+      <button class="zoom"><img src="assets/img/garden-07.jpg" width="1600" height="905" alt="Two gardeners fitting a drip line in a formal chateau garden" loading="lazy"></button>
+      <button class="zoom"><img src="assets/img/garden-10.jpg" width="1600" height="893" alt="A gardener fitting a drip irrigation connector beside a flowering shrub" loading="lazy"></button>
+      <button class="zoom"><img src="assets/img/garden-12.jpg" width="1600" height="893" alt="A gardener tending dahlias in a city park with towers behind" loading="lazy"></button>
+      <button class="zoom"><img src="assets/img/garden-15.jpg" width="1600" height="893" alt="Children playing football on a park lawn" loading="lazy"></button>
+      <button class="zoom"><img src="assets/img/garden-18.jpg" width="1600" height="893" alt="A couple cycling beside a pond lined with flower beds" loading="lazy"></button>
+      <button class="zoom more" hidden><img src="assets/img/garden-04.jpg" width="1600" height="893" alt="A park manager with a tablet looking over lawns and winding paths" loading="lazy"></button>
+      <button class="zoom more" hidden><img src="assets/img/garden-05.jpg" width="1600" height="893" alt="A gardener examining a pink rose in a sunlit garden" loading="lazy"></button>
+      <button class="zoom more" hidden><img src="assets/img/garden-08.jpg" width="1600" height="893" alt="A gardener tending lavender in a large garden" loading="lazy"></button>
+      <button class="zoom more" hidden><img src="assets/img/garden-09.jpg" width="1600" height="893" alt="A gardener laying a drip line through a flower bed" loading="lazy"></button>
+      <button class="zoom more" hidden><img src="assets/img/garden-11.jpg" width="1600" height="905" alt="A gardener tending flowers in a city park below the skyline" loading="lazy"></button>
+      <button class="zoom more" hidden><img src="assets/img/garden-13.jpg" width="1600" height="893" alt="A park manager walking a path across wide lawns facing the city skyline" loading="lazy"></button>
+      <button class="zoom more" hidden><img src="assets/img/garden-14.jpg" width="1600" height="893" alt="A park manager with a tablet in a residential neighborhood park" loading="lazy"></button>
+      <button class="zoom more" hidden><img src="assets/img/garden-16.jpg" width="1600" height="893" alt="Children playing hide and seek among park trees and flower beds" loading="lazy"></button>
+      <button class="zoom more" hidden><img src="assets/img/garden-17.jpg" width="1600" height="893" alt="A couple cycling along a park path past a canal" loading="lazy"></button>
+      <button class="zoom more" hidden><img src="assets/img/garden-19.jpg" width="1289" height="1600" alt="A gardener in gloves tending dahlias in a city park" loading="lazy"></button>
+      <button class="zoom more" hidden><img src="assets/img/garden-20.jpg" width="1289" height="1600" alt="A smiling gardener touching flowers in a city park" loading="lazy"></button>
     </div>
+    <button class="btn more-btn" aria-controls="gal-garden" aria-expanded="false" data-n="20">Show all 20 photos</button>
   </div>
 </div></section>
 
@@ -781,6 +816,17 @@ dialog[open]{animation:pop .22s var(--ease)}
       t.tabIndex=i?-1:0;
       t.addEventListener('keydown',function(e){var d=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(d){var n=tabs[(i+d+tabs.length)%tabs.length];n.focus();n.click()}});
     });}
+
+  document.querySelectorAll('.more-btn').forEach(function(b){
+    var g=document.getElementById(b.getAttribute('aria-controls'));
+    b.addEventListener('click',function(){
+      var open=b.getAttribute('aria-expanded')!=='true';
+      g.querySelectorAll('.zoom.more').forEach(function(z){z.hidden=!open});
+      b.setAttribute('aria-expanded',open);
+      b.textContent=open?'Show fewer photos':'Show all '+b.dataset.n+' photos';
+      if(!open)g.scrollIntoView({block:'start'});
+    });
+  });
 
   var lb=document.getElementById('lb'),lbi=lb.querySelector('img');
   document.querySelectorAll('.zoom').forEach(function(b){
