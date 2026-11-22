@@ -1,0 +1,118 @@
+{
+  "meta": {
+    "brand": "Galcon-Sentek",
+    "lang": "en",
+    "exampleLanguages": ["en"],
+    "title": "Galcon-Sentek Verbal Language",
+    "updated": "November 2026",
+    "status": "Draft. Proposed wording, pending Galcon-Sentek approval."
+  },
+  "strategy": {
+    "vision": "To shape the way the world grows, through smarter solutions rooted in nature, driven by people, built for the future.",
+    "mission": "We deliver precision agriculture solutions to customers worldwide.",
+    "promise": "Growing Wisely Together",
+    "balance": {
+      "intro": "The tagline already holds the two forces the brand has to keep at once. Wisely is what we prove. Together is how we show up. Lean too far to the first and we sound like a spec sheet; too far to the second and we sound like everyone else.",
+      "poles": [
+        {
+          "id": "wisely",
+          "name": "Wisely",
+          "subtitle": "Proof",
+          "insight": "A grower commits a whole season to each irrigation decision and cannot afford to guess.",
+          "description": "Decades of proven performance and agronomic knowledge, stated exactly. We show the reading, the reason and the result."
+        },
+        {
+          "id": "together",
+          "name": "Together",
+          "subtitle": "Presence",
+          "insight": "Growers and dealers are not buying a controller. They are taking on a partner for many seasons.",
+          "description": "Global strength with a local voice. We stay close, say what we will do, and succeed when our customers do."
+        }
+      ]
+    }
+  },
+  "verbal": {
+    "intro": "Four attributes, two for each side of the balance. Every line we write should be recognisable as at least one of them, and should never break any of them.",
+    "audiences": [
+      {"id": "grower", "name": "Grower"},
+      {"id": "dealer", "name": "Dealer"},
+      {"id": "integrator", "name": "Integrator"}
+    ],
+    "attributes": [
+      {
+        "id": "precise",
+        "name": "Precise",
+        "pole": "wisely",
+        "howWeSpeak": "We name the crop, the depth, the unit and the result. Exact language lets a grower act on what we say without a second call. When we don't have the number, we say so instead of rounding up.",
+        "toneKeywords": ["Specific", "Measured", "Exact"],
+        "examples": {
+          "grower": ["See moisture, temperature and salinity through the root zone, depth by depth.", "Irrigate when the root zone needs it, not when the calendar says so."],
+          "dealer": ["Every kit is listed with what's in the box, what it connects to and what it needs on site."],
+          "integrator": ["Inputs, outputs and protocols are on page one of every spec sheet."]
+        },
+        "doSay": ["Measures soil moisture, temperature and salinity at each depth.", "Setup takes one visit. Here are the steps."],
+        "dontSay": ["State-of-the-art sensing technology.", "Dramatically improves yields."]
+      },
+      {
+        "id": "agronomic",
+        "name": "Agronomic",
+        "pole": "wisely",
+        "howWeSpeak": "We start from the plant and the soil, then get to the technology. We explain what a reading means for this week's irrigation, in the words growers use with each other. Technical terms appear when they help, with a plain explanation beside them.",
+        "toneKeywords": ["Practical", "Plain-spoken", "Field-first"],
+        "examples": {
+          "grower": ["Water isn't reaching the lower roots. Here's what the graph is telling you."],
+          "dealer": ["Start the conversation with the crop. The controller comes second."],
+          "integrator": ["Built around how a fertigation shift really runs, from the first valve to the last flush."]
+        },
+        "doSay": ["Shows when water has moved past the roots.", "What this graph means for tomorrow's irrigation."],
+        "dontSay": ["Leverages advanced analytics for actionable insights.", "Unlock the power of your data."]
+      },
+      {
+        "id": "close",
+        "name": "Close",
+        "pole": "together",
+        "howWeSpeak": "We write as the person who will pick up the phone. We say \"we\" and \"you\", name the local team, and talk about the customer's season before our product. Friendly, never chummy: a grower's time comes first.",
+        "toneKeywords": ["Warm", "Direct", "Personal"],
+        "examples": {
+          "grower": ["Your local dealer knows your soil. We make sure they know your system just as well."],
+          "dealer": ["You sold it, and we stand behind it with you. Call us from the field."],
+          "integrator": ["Tell us about the site first. We'll fit the system to it together."]
+        },
+        "doSay": ["Talk to your dealer, or call us directly.", "Come and find us at the field day. Bring your questions."],
+        "dontSay": ["Please contact your authorized channel partner.", "Galcon-Sentek is pleased to announce its participation in the event."]
+      },
+      {
+        "id": "open",
+        "name": "Open",
+        "pole": "together",
+        "howWeSpeak": "We say what we will do, by when, and what we don't know yet. When something goes wrong we lead with the fix and the timeline, not a paragraph of apology. Trust is built in service updates more than in headlines.",
+        "toneKeywords": ["Honest", "Accountable", "Steady"],
+        "examples": {
+          "grower": ["The update is a day late. Your schedules are running as normal and nothing changes in the field."],
+          "dealer": ["This model ships next month, not this one. Here is what you can offer customers until then."],
+          "integrator": ["This version doesn't support that protocol yet. Here is what does, and when we expect the rest."]
+        },
+        "doSay": ["We found the fault. Here is the fix and when you'll have it.", "Not yet. We expect it next season."],
+        "dontSay": ["We apologize for any inconvenience this may have caused.", "Coming soon!"]
+      }
+    ],
+    "promisesIntro": "What each audience can hold us to, and the thoughts we want them to have after working with us.",
+    "promises": [
+      {
+        "audience": "grower",
+        "promise": "We give you the confidence to act: validated data and agronomic knowledge behind every irrigation decision.",
+        "perceptions": ["I know why I'm irrigating today, not only when.", "It performs the same way season after season.", "The system looks after itself, so I can look after the farm.", "They stay close long after the sale."]
+      },
+      {
+        "audience": "dealer",
+        "promise": "We make you the trusted advisor, with a solution that performs consistently and is easy to sell and stand behind.",
+        "perceptions": ["My customers come back because it works.", "I can explain the value in the grower's own terms.", "When I need backup, I reach a person, not a ticket.", "I can start a customer small and grow the system with them."]
+      },
+      {
+        "audience": "integrator",
+        "promise": "We give you a modular ecosystem that fits the project in front of you and scales with the next one.",
+        "perceptions": ["It connects to what is already on site.", "The documentation tells me exactly what I need.", "Their team works with mine, from design to commissioning."]
+      }
+    ]
+  }
+}
